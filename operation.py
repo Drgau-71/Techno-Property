@@ -83,6 +83,12 @@ def return_land(lands, kitta, name, phone, actual_duration):
     print("Thank you for using Techno Property Nepal's rental service.")
     print("Have a nice day! :)")
     print("\n")
+    print("\t Enter 1 to Rent the Land")
+    print("\t Enter 2 to Return the Land")
+    print("\t Enter 3 to Exit from system")
+    print("\n")
+    print("    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("\n")
 
 def get_expected_duration(name, phone, kitta):
     with open('customers.txt', 'r') as file:
