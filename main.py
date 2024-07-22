@@ -46,20 +46,12 @@ def main():
 
         elif A == '2':
             kitta = input("Enter kitta number: ")
-            for i in range(len(lands)):
-                if lands[i][0] == kitta:
-                    land = lands[i]
-                    break
-                else:
-                    land = None
-            if land != None:
-                name = input("Enter customer name: ")
-                phone = input("Enter customer phone number: ")
-                actual_duration = int(input("Enter actual rental duration in months: "))
-                return_land(land, name, phone, actual_duration)
-                lands = read.read_land_data()
-            else:
-                print("Land not found.")
+            name = input("Enter customer name: ")
+            phone = input("Enter customer phone number: ")
+            actual_duration = int(input("Enter actual rental duration in months: "))
+            return_land(lands, kitta, name, phone, actual_duration)
+            lands = read.read_land_data()  # Refresh land data
+            
         elif A == '3':
             break
         else:

@@ -2,26 +2,37 @@ import datetime
 
 def write_invoice(name, phone, land_data, rent_duration):
     kitta, location, direction, annas, cost, status = land_data
-    filename = f"invoice_{name}_{kitta}_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.txt"
     total_cost = int(cost) * rent_duration
     
-    with open(filename, "w") as file:
-        file.write("\t\t\t\t Techno Property Nepal\n")
-        file.write("\t\t\t\t New Baneshwor, Kathmandu, | Contact no. : 9793104925 \n\n")
-        file.write(f"Invoice Date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-        file.write(f"Customer Name: {name}\n")
-        file.write(f"Phone Number: {phone}\n\n")
-        file.write("Land Details:\n")
-        file.write(f"Kitta Number: {kitta}\n")
-        file.write(f"Location: {location}\n")
-        file.write(f"Direction: {direction}\n")
-        file.write(f"Area: {annas} annas\n")
-        file.write(f"Monthly Rent: NPR {cost}\n\n")
-        file.write(f"Rental Duration: {rent_duration} months\n")
-        file.write(f"Total Cost: NPR {total_cost}\n")
-        file.write(f"\nRental Start Date: {datetime.date.today()}\n")
+    print("\n")
+    print("\t\t\t\t Techno Property Nepal")
+    print("\t\t\t\t New Baneshwor, Kathmandu, | Contact no. : 9793104925")
+    print("\n")
+    print(f"Invoice Date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("\n")
+    print(f"Customer Name: {name}")
+    print(f"Phone Number: {phone}")
+    print("\n")
+    print("Land Details:")
+    print(f"Kitta Number: {kitta}")
+    print(f"Location: {location}")
+    print(f"Direction: {direction}")
+    print(f"Area: {annas} annas")
+    print(f"Monthly Rent: NPR {cost}")
+    print("\n")
+    print(f"Rental Duration: {rent_duration} months")
+    print(f"Total Cost: NPR {total_cost}")
+    print(f"\nRental Start Date: {datetime.date.today()}")
+    print("\n")
+    print("    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("\n")
+    print("\t Enter 1 to Rent the Land")
+    print("\t Enter 2 to Return the Land")
+    print("\t Enter 3 to Exit from system")
+    print("\n")
+    print("    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+    print("\n")
 
-    print(f"Invoice generated: {filename}")
 
 def update_land_status(filename, kitta, new_status):
     lands = []
@@ -37,3 +48,8 @@ def update_land_status(filename, kitta, new_status):
         file.write(header + '\n')  # Write the header back
         for land in lands:
             file.write(land + '\n')
+
+def add_customer_rental(filename, name, phone, kitta, rent_duration):
+    with open(filename, 'a') as file:
+        rental_date = datetime.date.today()
+        file.write(f"{name},{phone},{kitta},{rental_date},{rent_duration}\n")
