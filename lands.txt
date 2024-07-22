@@ -1,7 +1,5 @@
-S.N | Kitta | Location | Direction | Anna | Price  |  Status
 
- 1,    101,   Kathmandu,  North,      4,    50000,    Available 
 
- 2,    102,   Pokhara,    East,       5,    60000,    Not Available 
-
- 3,    103,   Lalitpur,   South,      10,   100000,   Available 
+101,   Kathmandu,  North,      4,    50000,Not Available
+102,   Pokhara,    East,       5,    60000,    Not Available
+103,   Lalitpur,   South,      10,   100000,   Available

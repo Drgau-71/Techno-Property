@@ -9,19 +9,19 @@ def rent_land(lands, name, phone, rent_duration, chosen_kitta):
     total_cost = 0
     for land in lands:
         kitta, location, direction, annas, cost, status = land
-        if status.lower() == 'Available' and kitta == chosen_kitta:
+        if land[-1].strip().lower() == 'available' and kitta.strip() == chosen_kitta.strip():
             land_cost = int(cost) * rent_duration
             total_cost += land_cost
             write_invoice(name, phone, land, rent_duration)
             update_land_status('lands.txt', kitta, 'Not Available')
-            add_customer_rental('customers.txt', name, phone, kitta)
+            # add_customer_rental('customers.txt', name, phone, kitta)
             rented_land = land
             break
     
     if rented_land:
-        print("Land " +chosen_kitta+"rented successfully. Total cost: NPR" +total_cost)
+        print(f"Land {chosen_kitta} rented successfully. Total cost: NPR {total_cost}")
     else:
-        print(f"Land with kitta " +chosen_kitta+" is not available for rent.")
+        print(f"Land with kitta {chosen_kitta} is not available for rent.")
 
 
 def return_land(land_data, name, phone, actual_duration):

@@ -1,11 +1,12 @@
 def read_land_data():
     lands = []
-    file = open("lands.txt", "r")
-    for line in file:
-        parts = line.strip().split(',')
-        if len(parts) >= 6:
-            kitta, location, direction, annas, cost, status = parts[:6]
-            lands.append([kitta, location, direction, annas, cost, status.strip()])
+    with open("lands.txt", "r") as file:
+        next(file)  # Skip the header line
+        for line in file:
+            parts = line.strip().split(',')
+            if len(parts) >= 6:
+                kitta, location, direction, annas, cost, status = [part.strip() for part in parts[:6]]
+                lands.append([kitta, location, direction, annas, cost, status])
     return lands
 
 def read_customer_data():
